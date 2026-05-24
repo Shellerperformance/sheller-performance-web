@@ -197,7 +197,8 @@ section{padding:7rem 3rem;}
 
 /* PLANES */
 .planes-layout{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:4rem;}
-.plan{border:1px solid var(--border);padding:3rem 2.5rem;position:relative;overflow:hidden;background:var(--card);transition:border-color .3s,transform .3s;}
+.plan{border:1px solid var(--border);padding:3rem 2.5rem;position:relative;overflow:hidden;background:var(--card);transition:border-color .3s,transform .3s;display:flex;flex-direction:column;}
+.plan ul{flex:1;}
 .plan:hover{transform:translateY(-4px);}
 .plan.featured{border-color:var(--gold);}
 .plan::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:transparent;}
