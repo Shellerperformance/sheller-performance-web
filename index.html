@@ -184,11 +184,7 @@ section{padding:7rem 3rem;}
 
 /* CALLBACK */
 .callback{background:var(--card);position:relative;overflow:hidden;}
-.callback::before{content:'CALLBACK';position:absolute;font-family:'Bebas Neue',sans-serif;font-size:clamp(8rem,18vw,18rem);color:rgba(197,160,89,.045);bottom:-2rem;right:-2rem;letter-spacing:.02em;line-height:1;pointer-events:none;z-index:1;}
-.cb-bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden;}
-.cb-bg-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.22) saturate(.5);}
-.cb-bg-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,11,22,.98) 0%,rgba(4,11,22,.88) 40%,rgba(4,11,22,.72) 100%);}
-.callback .s-eyebrow,.callback-layout{position:relative;z-index:2;}
+.callback::before{content:'CALLBACK';position:absolute;font-family:'Bebas Neue',sans-serif;font-size:clamp(8rem,18vw,18rem);color:rgba(197,160,89,.022);bottom:-2rem;right:-2rem;letter-spacing:.02em;line-height:1;pointer-events:none;}
 .callback-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem;}
 .cb-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:.35rem .9rem;margin-bottom:1.5rem;}
 .cb-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 2s infinite;flex-shrink:0;}
@@ -488,7 +484,6 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
 
 <!-- CALLBACK -->
 <section class="callback" id="callback">
-  <div class="cb-bg-photo" aria-hidden="true"><img src="./foto2.webp" alt=""></div>
   <p class="s-eyebrow reveal">Ecosistema Sheller</p>
   <div class="callback-layout">
     <div class="reveal">
