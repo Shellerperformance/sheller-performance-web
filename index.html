@@ -184,7 +184,11 @@ section{padding:7rem 3rem;}
 
 /* CALLBACK */
 .callback{background:var(--card);position:relative;overflow:hidden;}
-.callback::before{content:'CALLBACK';position:absolute;font-family:'Bebas Neue',sans-serif;font-size:clamp(8rem,18vw,18rem);color:rgba(197,160,89,.022);bottom:-2rem;right:-2rem;letter-spacing:.02em;line-height:1;pointer-events:none;}
+.callback::before{content:'CALLBACK';position:absolute;font-family:'Bebas Neue',sans-serif;font-size:clamp(8rem,18vw,18rem);color:rgba(197,160,89,.045);bottom:-2rem;right:-2rem;letter-spacing:.02em;line-height:1;pointer-events:none;z-index:1;}
+.cb-bg-photo{position:absolute;inset:0;z-index:0;overflow:hidden;}
+.cb-bg-photo img{width:100%;height:100%;object-fit:cover;object-position:center 40%;filter:brightness(.22) saturate(.5);}
+.cb-bg-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(4,11,22,.98) 0%,rgba(4,11,22,.88) 40%,rgba(4,11,22,.72) 100%);}
+.callback .s-eyebrow,.callback-layout{position:relative;z-index:2;}
 .callback-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem;}
 .cb-badge{display:inline-flex;align-items:center;gap:.6rem;font-family:'Barlow Condensed',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);border:1px solid var(--gold);padding:.35rem .9rem;margin-bottom:1.5rem;}
 .cb-dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:blink 2s infinite;flex-shrink:0;}
@@ -246,16 +250,9 @@ tr:last-child td{border:none;}
 .gcard h3{font-family:'Barlow Condensed',sans-serif;font-size:1.05rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-bottom:.75rem;}
 .gcard p{font-size:.86rem;color:var(--muted);line-height:1.7;}
 
-/* POR QUÉ — CON FOTO */
-.porque-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;margin-top:4rem;}
-.porque-img-wrap{position:relative;}
-.porque-img-frame{position:relative;overflow:hidden;}
-.porque-img-frame::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(4,11,22,.15) 0%,transparent 40%,rgba(4,11,22,.7) 100%);z-index:1;}
-.porque-img-frame img{width:100%;height:580px;object-fit:cover;object-position:center 40%;display:block;filter:brightness(.82) contrast(1.08) saturate(.8);}
-.porque-img-accent{position:absolute;top:0;left:0;right:0;height:2px;background:var(--gold);z-index:2;}
-.porque-img-caption{position:absolute;bottom:0;left:0;right:0;z-index:2;padding:1.75rem;}
-.porque-img-caption-name{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:.1em;color:var(--white);}
-.porque-img-caption-role{font-family:'Barlow Condensed',sans-serif;font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:.2rem;}
+/* POR QUÉ — SIN FOTO */
+.porque-difs{display:grid;grid-template-columns:1fr 1fr;gap:0 5rem;margin-top:3.5rem;}
+.pq-cierre-wrap{margin-top:3rem;padding:2rem;border:1px solid var(--border);border-left:3px solid var(--gold);}
 .dif-grid{display:flex;flex-direction:column;}
 .dif{display:grid;grid-template-columns:56px 1fr;gap:1.25rem;align-items:start;padding:1.5rem 0;border-bottom:1px solid var(--border);}
 .dif:last-child{border:none;}
@@ -316,7 +313,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
   .callback-layout{grid-template-columns:1fr;}
   .planes-layout{grid-template-columns:1fr!important;}
   .garantia-grid{grid-template-columns:1fr;}
-  .porque-layout{grid-template-columns:1fr;}
+  .porque-difs{grid-template-columns:1fr;}
   .psteps{grid-template-columns:1fr;}
 }
 @media(max-width:600px){
@@ -491,6 +488,7 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
 
 <!-- CALLBACK -->
 <section class="callback" id="callback">
+  <div class="cb-bg-photo" aria-hidden="true"><img src="./foto2.webp" alt=""></div>
   <p class="s-eyebrow reveal">Ecosistema Sheller</p>
   <div class="callback-layout">
     <div class="reveal">
@@ -607,31 +605,23 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
 
 <div class="divider-anim"></div>
 
-<!-- POR QUÉ CON FOTO -->
+<!-- POR QUÉ SIN FOTO -->
 <section id="porque">
   <p class="s-eyebrow reveal">Por qué Sheller Performance</p>
   <h2 class="s-h reveal">LO QUE NOS SEPARA<br>DEL RESTO.</h2>
-  <div class="porque-layout">
-    <div class="porque-img-wrap reveal stagger-1">
-      <div class="porque-img-frame">
-        <div class="porque-img-accent"></div>
-        <img src="./foto2.webp" alt="Adrián Arellano — Fundador Sheller Performance">
-        <div class="porque-img-caption">
-          <div class="porque-img-caption-name">Adrián Arellano</div>
-          <div class="porque-img-caption-role">Fundador · +150.000€ en B2B real · 23 años</div>
-        </div>
-      </div>
+  <div class="porque-difs">
+    <div class="dif-grid">
+      <div class="dif reveal stagger-1"><div class="dif-idx">01</div><div><h4>El formador vende mientras enseña</h4><p>+5 años en ventas B2B activas desde los 16. Más de 150.000€ cerrados antes de los 23. No enseña teoría. Enseña lo que funciona en la calle hoy.</p></div></div>
+      <div class="dif reveal stagger-2"><div class="dif-idx">02</div><div><h4>Resultados en 2 días, no en meses</h4><p>El intensivo instala el método en 2 jornadas presenciales. Tu equipo sale con herramientas que puede usar en la próxima llamada.</p></div></div>
+      <div class="dif reveal stagger-3"><div class="dif-idx">03</div><div><h4>Métricas reales, no certificados</h4><p>El CallBack mide tasa de contacto, agendado, cierre y tiempo de ciclo. Sabes exactamente cómo mejora cada comercial, con datos.</p></div></div>
     </div>
-    <div class="reveal stagger-2">
-      <div class="dif-grid">
-        <div class="dif"><div class="dif-idx">01</div><div><h4>El formador vende mientras enseña</h4><p>+5 años en ventas B2B activas desde los 16. Más de 150.000€ cerrados antes de los 23. No enseña teoría. Enseña lo que funciona en la calle hoy.</p></div></div>
-        <div class="dif"><div class="dif-idx">02</div><div><h4>Resultados en 2 días, no en meses</h4><p>El intensivo instala el método en 2 jornadas presenciales. Tu equipo sale con herramientas que puede usar en la próxima llamada.</p></div></div>
-        <div class="dif"><div class="dif-idx">03</div><div><h4>Métricas reales, no certificados</h4><p>El CallBack mide tasa de contacto, agendado, cierre y tiempo de ciclo. Sabes exactamente cómo mejora cada comercial, con datos.</p></div></div>
-        <div class="dif"><div class="dif-idx">04</div><div><h4>Adaptado a tu sector y buyer persona</h4><p>No hay un programa estándar. Cada formación se adapta al mercado de tu empresa y al perfil de cliente que persigues.</p></div></div>
-        <div class="dif"><div class="dif-idx">05</div><div><h4>Gestión de bonificación FUNDAE incluida</h4><p>Gestionamos la bonificación completa. En muchos casos la formación tiene un coste neto muy reducido o cero para la empresa.</p></div></div>
-      </div>
-      <div class="pq-cierre"><p>No vendemos dependencia. El objetivo del programa es que tu equipo no nos necesite para seguir mejorando.</p></div>
+    <div class="dif-grid">
+      <div class="dif reveal stagger-1"><div class="dif-idx">04</div><div><h4>Adaptado a tu sector y buyer persona</h4><p>No hay un programa estándar. Cada formación se adapta al mercado de tu empresa y al perfil de cliente que persigues.</p></div></div>
+      <div class="dif reveal stagger-2"><div class="dif-idx">05</div><div><h4>Gestión de bonificación FUNDAE incluida</h4><p>Gestionamos la bonificación completa. En muchos casos la formación tiene un coste neto muy reducido o cero para la empresa.</p></div></div>
     </div>
+  </div>
+  <div class="pq-cierre-wrap reveal stagger-3">
+    <p style="font-size:.92rem;color:var(--muted);line-height:1.75;">No vendemos dependencia. El objetivo del programa es que tu equipo no nos necesite para seguir mejorando.</p>
   </div>
 </section>
 
