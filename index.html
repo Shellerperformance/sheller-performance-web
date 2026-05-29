@@ -872,6 +872,20 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
     mob.classList.toggle('open');
     document.body.style.overflow=mob.classList.contains('open')?'hidden':'';
   });
+  /* FAQ ACORDEÓN */
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      const item=btn.closest('.faq-item');
+      const ans=item.querySelector('.faq-a');
+      const isOpen=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.faq-a').style.maxHeight='';
+      });
+      if(!isOpen){item.classList.add('open');ans.style.maxHeight=ans.scrollHeight+'px';}
+    });
+  });
+
   /* NAV ACTIVO AL SCROLL */
   const navLinks=document.querySelectorAll('.nav-li[href^="#"]');
   const sections=Array.from(navLinks).map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
