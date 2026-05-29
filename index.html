@@ -833,6 +833,20 @@ footer{padding:2.5rem 3rem;border-top:1px solid var(--border);display:flex;justi
     mob.classList.toggle('open');
     document.body.style.overflow=mob.classList.contains('open')?'hidden':'';
   });
+  /* NAV ACTIVO AL SCROLL */
+  const navLinks=document.querySelectorAll('.nav-li[href^="#"]');
+  const sections=Array.from(navLinks).map(l=>document.querySelector(l.getAttribute('href'))).filter(Boolean);
+  function updateNav(){
+    const scrollY=window.scrollY+120;
+    let current=sections[0];
+    sections.forEach(s=>{if(scrollY>=s.offsetTop)current=s;});
+    navLinks.forEach(l=>{
+      l.classList.toggle('active',l.getAttribute('href')==='#'+current.id);
+    });
+  }
+  window.addEventListener('scroll',updateNav,{passive:true});
+  updateNav();
+
   window.closeMob=function(){
     ham.classList.remove('open');
     mob.classList.remove('open');
